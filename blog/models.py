@@ -19,7 +19,7 @@ class Blog(models.Model):
     title=models.CharField(max_length=30)
     slug=models.SlugField(max_length=30)
     image=models.ImageField(upload_to='media/images/%y/%m/%d')
-    short_description=models.CharField(max_length=500)
+    short_description=models.CharField(max_length=2000)
     blog_body=models.CharField(max_length=30000)
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     author=models.ForeignKey(User,on_delete=models.CASCADE)
