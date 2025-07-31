@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,get_object_or_404
 from blog.models import Category,Blog
 
 def home(request):
@@ -24,4 +24,10 @@ def posts_by_category(request,cname):
     return render(request,'posts_by_category.html',context)
 
 def single_blog(request,slug):
-    return HttpResponse('single blog page')
+    categories=Category.objects.all()
+    blog=get_object_or_404(Blog,slug=slug,status='Published')
+    context={
+        'categories':categories,
+        'blog':blog
+    }
+    return render(request,'single_blog.html',context)

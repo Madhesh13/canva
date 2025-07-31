@@ -16,8 +16,8 @@ Status_choices=[
 ]
     
 class Blog(models.Model):
-    title=models.CharField(max_length=30)
-    slug=models.SlugField(max_length=30)
+    title=models.CharField(max_length=3000)
+    slug=models.SlugField(max_length=3000)
     image=models.ImageField(upload_to='media/images/%y/%m/%d')
     short_description=models.CharField(max_length=2000)
     blog_body=models.CharField(max_length=30000)

@@ -34,16 +34,17 @@
         </nav>
       </div>
 
-{% for blog in blogs %}
-
-  <!-- <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" style="background-image: url({{blog.image.url}})" ;background-blend-mode: overlay;background-size:cover;"> -->
-    <div class="col-md-8 px-0">
-      <h1 class="display-4 font-italic">{{blog.title}}</h1>
-      <p class="lead my-3">{{blog.short_description}}</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-    </div>
-  <!-- </div> -->
-  
-{% endfor %}
-
+  <div class="row mb-2">
+    {% for blog in blogs %}
+        <div class="col">
+          <div class="card border-0" >
+            <div class="card-body">
+            <h3><a href="{% url "single_blog" blog.slug %}">{{blog.title}}</a></h3>
+            <small class="mb-1 text-muted">{{blog.created_at}} | {{blog.author}}</small>
+            <p class="card-text">{{blog.short_description}}</p>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+  </div>
 </html>
