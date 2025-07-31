@@ -18,7 +18,8 @@ def posts_by_category(request,cname):
     blogs=Blog.objects.all().filter(category=category.id)
     context={
         'categories':categories,
-        'blogs':blogs
+        'blogs':blogs,
+        'cateo'
     }
 
     return render(request,'posts_by_category.html',context)
@@ -28,6 +29,7 @@ def single_blog(request,slug):
     blog=get_object_or_404(Blog,slug=slug,status='Published')
     context={
         'categories':categories,
-        'blog':blog
+        'blog':blog,
+
     }
     return render(request,'single_blog.html',context)
